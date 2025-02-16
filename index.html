@@ -1,0 +1,720 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This meta tag makes sure the page scales nicely on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Learning Quiz System</title>
+  <!-- SheetJS (xlsx) -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <!-- Import Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* GENERAL PAGE STYLES */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quiz-container {
+      width: 95%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-header {
+      background: linear-gradient(135deg, #3f51b5, #283593);
+      color: #fff;
+      padding: 25px;
+      text-align: center;
+    }
+    
+    .quiz-header h1 {
+      margin: 0;
+      font-weight: 500;
+      font-size: 2em;
+    }
+
+    .quiz-content {
+      padding: 25px 30px;
+    }
+
+    /* FILE UPLOAD SECTION */
+    .file-upload {
+      margin-bottom: 25px;
+      padding: 40px;
+      border: 3px dashed #bbb;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+      background-color: #fafafa;
+    }
+    .file-upload:hover {
+      transform: scale(1.02);
+    }
+    .file-upload.dragover {
+      background-color: #e3f2fd;
+      border-color: #2196f3;
+    }
+    .file-upload p {
+      font-size: 1.1em;
+      color: #555;
+      margin: 0;
+    }
+    .file-upload button {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border: none;
+      background-color: #3f51b5;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .file-upload button:hover {
+      background-color: #2f4095;
+    }
+
+    /* TABLE EXAMPLE */
+    .format-table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-size: 0.9em;
+      width: 90%;
+    }
+    .format-table th,
+    .format-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    .format-table th {
+      background-color: #f0f0f0;
+    }
+    .format-note {
+      font-size: 0.8em;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* QUIZ STATISTICS */
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: #f9f9f9;
+      padding: 12px 18px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      min-width: 120px;
+    }
+    .stat span {
+      font-weight: 500;
+      color: #333;
+    }
+
+    /* QUESTION & OPTIONS */
+    .question {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin: 10px 0 25px 0;
+      color: #333;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option {
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #fafafa;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .option:hover {
+      background-color: #f0f0f0;
+      transform: translateX(5px);
+    }
+    .selected {
+      background-color: #e3f2fd;
+      border-color: #2196f3;
+    }
+    .correct {
+      background-color: #c8e6c9;
+      border-color: #4caf50;
+    }
+    .incorrect {
+      background-color: #ffcdd2;
+      border-color: #f44336;
+    }
+
+    /* FEEDBACK MESSAGE */
+    .feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+      display: none; /* hidden until shown by JS */
+      font-weight: 500;
+    }
+    .feedback.success {
+      background-color: #c8e6c9;
+      color: #2e7d32;
+    }
+    .feedback.error {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+
+    /* BUTTON STYLES */
+    button {
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 20px;
+      margin-right: 10px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #2f4095;
+      transform: translateY(-2px);
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* EDIT FORM */
+    #edit-container {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 20px;
+      display: none;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+    }
+    #edit-container h3 {
+      margin-top: 0;
+      font-weight: 500;
+    }
+    #edit-container label {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #333;
+    }
+    #edit-container input, 
+    #edit-container select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 600px) {
+      .stats {
+        flex-direction: column;
+        align-items: center;
+      }
+      .quiz-content {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1>Deep Learning Quiz System</h1>
+    </div>
+
+    <div class="quiz-content">
+      <!-- File Upload Section -->
+      <div id="file-upload" class="file-upload">
+        <input type="file" id="excel-file" accept=".xlsx,.xls" style="display: none">
+        <p>Drag &amp; drop an Excel file here or click to select</p>
+        <div style="margin: 20px;">
+          <h3>Required Excel Format:</h3>
+          <table class="format-table">
+            <tr>
+              <th>Category</th>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Answer A</th>
+              <th>Answer B</th>
+              <th>Answer C</th>
+              <th>Answer D</th>
+              <th>Answer E</th>
+            </tr>
+            <tr>
+              <td>Medic_Exam</td>
+              <td>כמה ראשים יש לשריר ה-בייספס</td>
+              <td>B</td>
+              <td>ראש אחד</td>
+              <td>שני ראשים</td>
+              <td>שלושה ראשים</td>
+              <td>20 ראשים</td>
+              <td>אין תשובה נכונה</td>
+            </tr>
+          </table>
+          <p class="format-note">
+            * In the "Correct Answer" column, please specify A, B, C, or D
+          </p>
+        </div>
+        <button onclick="document.getElementById('excel-file').click()">Select File</button>
+      </div>
+
+      <!-- Quiz Content Section -->
+      <div id="quiz-content" style="display: none;">
+        <div class="stats">
+          <div class="stat">Remaining Questions: <span id="remainingQuestions">0</span></div>
+          <div class="stat">Correct Answers: <span id="correctAnswers">0</span></div>
+          <div class="stat">Attempts: <span id="attempts">0</span></div>
+        </div>
+
+        <div class="question"></div>
+        <div class="options"></div>
+        <div class="feedback"></div>
+
+        <!-- Buttons for navigation & editing -->
+        <button onclick="checkAnswer()" id="submitBtn">Check Answer</button>
+        <button onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question</button>
+        <button onclick="previousQuestion()" id="previousBtn" style="display: none;">Previous Question</button>
+        <button onclick="editQuestion()" id="editBtn" style="display: none;">Edit Question</button>
+        <button onclick="downloadUpdatedExcel()" id="downloadBtn" style="display: none;">Download Updated Excel</button>
+
+        <!-- Edit Question Form -->
+        <div id="edit-container">
+          <h3>Edit Question</h3>
+          <label for="edit-question-text">Question Text:</label>
+          <input id="edit-question-text" type="text">
+
+          <label for="edit-answerA">Answer A:</label>
+          <input id="edit-answerA" type="text">
+
+          <label for="edit-answerB">Answer B:</label>
+          <input id="edit-answerB" type="text">
+
+          <label for="edit-answerC">Answer C:</label>
+          <input id="edit-answerC" type="text">
+
+          <label for="edit-answerD">Answer D:</label>
+          <input id="edit-answerD" type="text">
+
+          <label for="edit-answerE">Answer E:</label>
+          <input id="edit-answerE" type="text">
+
+          <label for="edit-correctAnswer">Correct Answer (A/B/C/D/E):</label>
+          <select id="edit-correctAnswer">
+            <option value="0">A</option>
+            <option value="1">B</option>
+            <option value="2">C</option>
+            <option value="3">D</option>
+            <option value="4">E</option>
+          </select>
+
+          <div style="margin-top: 20px;">
+            <button onclick="saveQuestionEdits()">Save Changes</button>
+            <button onclick="cancelQuestionEdits()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let incorrectQuestions = [];
+    let selectedOption = null;
+    let correctCount = 0;
+    let attemptCount = 0;
+    let reviewMode = false;
+
+    // We'll keep the raw data from the Excel so we can update it and allow download.
+    let excelData = [];
+
+    // File upload handling
+    const fileUpload = document.getElementById('file-upload');
+    const excelFile = document.getElementById('excel-file');
+
+    fileUpload.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileUpload.classList.add('dragover');
+    });
+
+    fileUpload.addEventListener('dragleave', () => {
+      fileUpload.classList.remove('dragover');
+    });
+
+    fileUpload.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileUpload.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && (file.name.endsWith('.xlsx') || file.name.endsWith('.xls'))) {
+        handleFile(file);
+      } else {
+        alert('Please upload a valid Excel file (.xlsx or .xls)');
+      }
+    });
+
+    excelFile.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) handleFile(file);
+    });
+
+    function handleFile(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, {type: 'array'});
+        // Assume first sheet
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        
+        // Convert to JSON (array of arrays)
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+        excelData = jsonData; // Store the raw data for later updates
+
+        parseExcelData(jsonData);
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    // Parse the Excel data into our questions structure
+    function parseExcelData(data) {
+      questions = [];
+      
+      // data[0] is the header row. Start from row 1
+      for (let i = 1; i < data.length; i++) {
+        const row = data[i];
+        // Expecting at least 7 columns: Category, Question, Correct, A, B, C, D
+        if (!row || row.length < 7) continue;
+
+        // row[0] = Category (optional)
+        // row[1] = Question
+        // row[2] = Correct Answer (A/B/C/D)
+        // row[3] = Answer A
+        // row[4] = Answer B
+        // row[5] = Answer C
+        // row[6] = Answer D
+
+        const questionText = row[1];
+        const correctAnswerLetter = String(row[2]).trim().toUpperCase();
+        // Convert letter to index (A -> 0, B -> 1, C -> 2, D -> 3)
+        const originalCorrectIndex = correctAnswerLetter.charCodeAt(0) - 65;
+
+        const answersWithIndices = [
+          { text: row[3], index: 0 }, 
+          { text: row[4], index: 1 },
+          { text: row[5], index: 2 },
+          { text: row[6], index: 3 },
+          { text: row[7], index: 4 }
+        ].filter(ans => ans.text); // Filter out any empty answers
+
+        // Basic validation
+        if (answersWithIndices.length > 0 && questionText) {
+          questions.push({
+            rowIndex: i, // store the row index to update if needed
+            question: questionText,
+            answersWithIndices: answersWithIndices,
+            correctIndex: originalCorrectIndex,
+            currentShuffledAnswers: []
+          });
+        }
+      }
+
+      if (questions.length > 0) {
+        // Shuffle questions
+        questions = questions.sort(() => Math.random() - 0.5);
+        resetQuiz();
+        loadQuestion();
+        
+        document.getElementById('file-upload').style.display = 'none';
+        document.getElementById('quiz-content').style.display = 'block';
+        // Show the Download button in case user wants the updated file
+        document.getElementById('downloadBtn').style.display = 'inline-block';
+      } else {
+        alert('No valid questions found. Please check your Excel file format.');
+      }
+    }
+
+    function resetQuiz() {
+      currentQuestionIndex = 0;
+      incorrectQuestions = [];
+      selectedOption = null;
+      correctCount = 0;
+      attemptCount = 0;
+      reviewMode = false;
+      questions = questions.sort(() => Math.random() - 0.5);
+    }
+
+    function loadQuestion() {
+      const questionObj = questions[currentQuestionIndex];
+      
+      // 1) Insert question text with innerHTML
+      document.querySelector('.question').innerHTML = questionObj.question;
+      
+      const shuffledAnswers = [...questionObj.answersWithIndices].sort(() => Math.random() - 0.5);
+      questionObj.currentShuffledAnswers = shuffledAnswers;
+
+      const optionsContainer = document.querySelector('.options');
+      optionsContainer.innerHTML = '';
+      
+      shuffledAnswers.forEach((answer, displayIndex) => {
+        const div = document.createElement('div');
+        div.className = 'option';
+        div.innerHTML = answer.text; 
+        div.dataset.originalIndex = answer.index;
+        div.onclick = () => selectOption(displayIndex);
+        optionsContainer.appendChild(div);
+      });
+
+      document.querySelector('.feedback').style.display = 'none';
+      document.getElementById('submitBtn').style.display = 'inline-block';
+      document.getElementById('nextBtn').style.display = 'none';
+
+      // Show/hide "Previous" button
+      document.getElementById('previousBtn').style.display = (currentQuestionIndex > 0 && !reviewMode) ? 'inline-block' : 'none';
+
+      // Edit button always visible
+      document.getElementById('editBtn').style.display = 'inline-block';
+
+      selectedOption = null;
+      updateStats();
+
+      if (window.MathJax) {
+        // Re-render MathJax (if using LaTeX in questions)
+        MathJax.typesetPromise().catch(err => console.error(err));
+      }
+    }
+
+    function selectOption(index) {
+      document.querySelectorAll('.option').forEach(opt => {
+        opt.className = 'option';
+      });
+      document.querySelectorAll('.option')[index].classList.add('selected');
+      selectedOption = index;
+    }
+
+    function checkAnswer() {
+      if (selectedOption === null) {
+        alert('Please select an answer.');
+        return;
+      }
+
+      attemptCount++;
+      const questionObj = questions[currentQuestionIndex];
+      const feedback = document.querySelector('.feedback');
+      const options = document.querySelectorAll('.option');
+      
+      // Compare original index
+      const selectedOriginalIndex = questionObj.currentShuffledAnswers[selectedOption].index;
+      const isCorrect = (selectedOriginalIndex === questionObj.correctIndex);
+      
+      if (isCorrect) {
+        feedback.className = 'feedback success';
+        feedback.textContent = 'Correct! Well done.';
+        options[selectedOption].classList.add('correct');
+        correctCount++;
+
+        const idx = incorrectQuestions.indexOf(currentQuestionIndex);
+        if (idx > -1) {
+          incorrectQuestions.splice(idx, 1);
+        }
+      } else {
+        feedback.className = 'feedback error';
+        const correctDisplayIndex = questionObj.currentShuffledAnswers.findIndex(
+          ans => ans.index === questionObj.correctIndex
+        );
+        const correctText = questionObj.currentShuffledAnswers[correctDisplayIndex].text;
+        feedback.textContent = `Incorrect. The correct answer is: ${correctText}`;
+        options[selectedOption].classList.add('incorrect');
+        options[correctDisplayIndex].classList.add('correct');
+
+        if (!incorrectQuestions.includes(currentQuestionIndex)) {
+          incorrectQuestions.push(currentQuestionIndex);
+        }
+      }
+
+      feedback.style.display = 'block';
+      document.getElementById('submitBtn').style.display = 'none';
+      document.getElementById('nextBtn').style.display = 'inline-block';
+
+      updateStats();
+    }
+
+    function nextQuestion() {
+      if (!reviewMode) {
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+          loadQuestion();
+        } else {
+          // Finished all questions
+          if (incorrectQuestions.length > 0) {
+            const msg = `You have finished all questions.\n${incorrectQuestions.length} question(s) were answered incorrectly.\nWould you like to retry them?`;
+            if (confirm(msg)) {
+              startReviewMode();
+            }
+          } else {
+            if (confirm('Congratulations, you answered all questions correctly! Restart?')) {
+              resetQuiz();
+              loadQuestion();
+            }
+          }
+        }
+      } else {
+        // Review mode for incorrectly answered questions
+        if (incorrectQuestions.length > 0) {
+          currentQuestionIndex = incorrectQuestions.shift();
+          loadQuestion();
+        } else {
+          // Done reviewing
+          if (confirm('You have finished the incorrect questions. Restart the entire quiz?')) {
+            reviewMode = false;
+            resetQuiz();
+            loadQuestion();
+          }
+        }
+      }
+    }
+
+    function previousQuestion() {
+      if (!reviewMode && currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+      }
+    }
+
+    function startReviewMode() {
+      reviewMode = true;
+      currentQuestionIndex = incorrectQuestions.shift();
+      loadQuestion();
+    }
+
+    function updateStats() {
+      let remainingCount;
+      if (reviewMode) {
+        remainingCount = incorrectQuestions.length + 1;
+      } else {
+        const total = questions.length;
+        const answered = currentQuestionIndex;
+        remainingCount = total - answered;
+      }
+      document.getElementById('remainingQuestions').textContent = remainingCount;
+      document.getElementById('correctAnswers').textContent = correctCount;
+      document.getElementById('attempts').textContent = attemptCount;
+    }
+
+    /************************************************************
+     * Editing Functionality
+     ************************************************************/
+
+    function editQuestion() {
+      const questionObj = questions[currentQuestionIndex];
+      const rowIndex = questionObj.rowIndex;
+
+      // Fill the form with current question data
+      document.getElementById('edit-question-text').value = questionObj.question;
+
+      // Use the row to ensure correct mapping
+      const row = excelData[rowIndex];
+      document.getElementById('edit-answerA').value = row[3] || '';
+      document.getElementById('edit-answerB').value = row[4] || '';
+      document.getElementById('edit-answerC').value = row[5] || '';
+      document.getElementById('edit-answerD').value = row[6] || '';
+      document.getElementById('edit-answerE').value = row[7] || '';
+
+      // Set correct answer select
+      document.getElementById('edit-correctAnswer').value = questionObj.correctIndex;
+
+      // Show edit container
+      document.getElementById('edit-container').style.display = 'block';
+    }
+
+    function saveQuestionEdits() {
+      const questionObj = questions[currentQuestionIndex];
+      const rowIndex = questionObj.rowIndex;
+
+      // Grab updated form values
+      const newQuestion = document.getElementById('edit-question-text').value;
+      const newA = document.getElementById('edit-answerA').value;
+      const newB = document.getElementById('edit-answerB').value;
+      const newC = document.getElementById('edit-answerC').value;
+      const newD = document.getElementById('edit-answerD').value;
+      const newE = document.getElementById('edit-answerE').value;
+      const newCorrectIndex = parseInt(document.getElementById('edit-correctAnswer').value, 10);
+
+      // Update in-memory object
+      questionObj.question = newQuestion;
+      questionObj.correctIndex = newCorrectIndex;
+      questionObj.answersWithIndices = [
+        { text: newA, index: 0 },
+        { text: newB, index: 1 },
+        { text: newC, index: 2 },
+        { text: newD, index: 3 },
+        { text: newE, index: 4 }
+      ].filter(ans => ans.text);
+
+      // Update the raw excelData
+      // Format: [Category, Question, Correct, A, B, C, D]
+      const row = excelData[rowIndex];
+      // row[0] = category (unchanged)
+      row[1] = newQuestion;
+      row[2] = String.fromCharCode(65 + newCorrectIndex); // 0->A,1->B,2->C,3->D
+      row[3] = newA;
+      row[4] = newB;
+      row[5] = newC;
+      row[6] = newD;
+      row[7] = newE;
+
+      // Hide edit container and refresh question
+      document.getElementById('edit-container').style.display = 'none';
+      loadQuestion();
+    }
+
+    function cancelQuestionEdits() {
+      document.getElementById('edit-container').style.display = 'none';
+    }
+
+    function downloadUpdatedExcel() {
+      // Create a new workbook and sheet from the updated excelData
+      const newWorkbook = XLSX.utils.book_new();
+      const newWorksheet = XLSX.utils.aoa_to_sheet(excelData);
+
+      XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Sheet1');
+      XLSX.writeFile(newWorkbook, 'updated_questions.xlsx');
+    }
+  </script>
+</body>
+</html>
