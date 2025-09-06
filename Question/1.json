@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Which model utilizes an encoder-only transformer architecture and excels at understanding the context of a word within a sentence?",
+    "Correct Answer": "A",
+    "Answer A": "BERT",
+    "Answer B": "GPT",
+    "Answer C": "T5",
+    "Answer D": "GAN"
+  },
+  {
+    "Question": "Which model is designed to generate creative images from textual descriptions using deep learning techniques?",
+    "Correct Answer": "A",
+    "Answer A": "DALL-E",
+    "Answer B": "BART",
+    "Answer C": "SentencePiece",
+    "Answer D": "WaveNet"
+  },
+  {
+    "Question": "Which generative model learns to remove noise from data in order to reconstruct images, thereby enabling image generation?",
+    "Correct Answer": "A",
+    "Answer A": "Diffusion model",
+    "Answer B": "Generative Adversarial Network",
+    "Answer C": "Variational Autoencoder",
+    "Answer D": "Transformer"
+  },
+  {
+    "Question": "What is the process of adjusting a pretrained model to improve performance for a specific task or dataset?",
+    "Correct Answer": "B",
+    "Answer A": "Pretraining",
+    "Answer B": "Fine-tuning",
+    "Answer C": "Tokenization",
+    "Answer D": "Data augmentation"
+  },
+  {
+    "Question": "Which architecture consists of a generator and a discriminator that work in a competitive setup?",
+    "Correct Answer": "B",
+    "Answer A": "Variational Autoencoder (VAE)",
+    "Answer B": "Generative Adversarial Network (GAN)",
+    "Answer C": "Diffusion model",
+    "Answer D": "Encoder-only Transformer"
+  },
+  {
+    "Question": "Which model is pretrained on large amounts of text data and can predict and generate text sequences based on learned patterns?",
+    "Correct Answer": "A",
+    "Answer A": "GPT",
+    "Answer B": "BERT",
+    "Answer C": "DALL-E",
+    "Answer D": "WordPiece"
+  },
+  {
+    "Question": "Which platform provides open-source libraries with pretrained models and tools to streamline training and fine-tuning of generative AI models?",
+    "Correct Answer": "C",
+    "Answer A": "spaCy",
+    "Answer B": "TensorFlow Hub",
+    "Answer C": "Hugging Face",
+    "Answer D": "NLTK"
+  },
+  {
+    "Question": "Which open-source framework helps streamline AI application development using large language models?",
+    "Correct Answer": "B",
+    "Answer A": "PyTorch Lightning",
+    "Answer B": "LangChain",
+    "Answer C": "Pydantic",
+    "Answer D": "SentencePiece"
+  },
+  {
+    "Question": "Which of the following is a subword-based tokenization algorithm that segments text into smaller units?",
+    "Correct Answer": "A",
+    "Answer A": "SentencePiece",
+    "Answer B": "Pydantic",
+    "Answer C": "PyTorch",
+    "Answer D": "LangChain"
+  },
+  {
+    "Question": "Which generative model compresses inputs into a latent space with an encoder and then reconstructs them with a decoder?",
+    "Correct Answer": "C",
+    "Answer A": "GAN",
+    "Answer B": "Diffusion model",
+    "Answer C": "Variational Autoencoder (VAE)",
+    "Answer D": "BART"
+  }
+]

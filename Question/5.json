@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Which RNN enhancement is effective for long time-series dependencies in NLP tasks?",
+    "Correct Answer": "A",
+    "Answer A": "LSTM",
+    "Answer B": "N-gram model",
+    "Answer C": "NLTK",
+    "Answer D": "One-hot encoding"
+  },
+  {
+    "Question": "What do we call the function that measures the difference between model predictions and true labels?",
+    "Correct Answer": "B",
+    "Answer A": "Optimizer",
+    "Answer B": "Loss function",
+    "Answer C": "Embedding",
+    "Answer D": "Perplexity"
+  },
+  {
+    "Question": "Which term refers to a statistical technique that draws random samples from a distribution to handle uncertainty?",
+    "Correct Answer": "C",
+    "Answer A": "Gradient descent",
+    "Answer B": "Regularization",
+    "Answer C": "Monte Carlo sampling",
+    "Answer D": "Beam search"
+  },
+  {
+    "Question": "Which field focuses on enabling computers to understand and generate human language?",
+    "Correct Answer": "A",
+    "Answer A": "NLP",
+    "Answer B": "Computer graphics",
+    "Answer C": "Operating systems",
+    "Answer D": "Computer vision only"
+  },
+  {
+    "Question": "Which option best describes a neural network at a high level?",
+    "Correct Answer": "D",
+    "Answer A": "Single linear regression layer",
+    "Answer B": "Only an output layer",
+    "Answer C": "Only an input layer",
+    "Answer D": "Input layer, one or more hidden layers, and an output layer"
+  },
+  {
+    "Question": "Which language model analyzes sequences of n consecutive tokens to model local context?",
+    "Correct Answer": "B",
+    "Answer A": "Word2vec",
+    "Answer B": "N-gram model",
+    "Answer C": "LSTM",
+    "Answer D": "NLTK"
+  },
+  {
+    "Question": "Which Python library is commonly used for tokenization and other text processing tasks?",
+    "Correct Answer": "C",
+    "Answer A": "NumPy",
+    "Answer B": "Matplotlib",
+    "Answer C": "NLTK",
+    "Answer D": "OpenCV"
+  },
+  {
+    "Question": "Which encoding converts a categorical item into a vector with a single 1 and the rest 0s?",
+    "Correct Answer": "A",
+    "Answer A": "One-hot encoding",
+    "Answer B": "Word embedding",
+    "Answer C": "TF–IDF",
+    "Answer D": "Run-length encoding"
+  },
+  {
+    "Question": "Which metric evaluates how ‘surprised’ a language model is when predicting the next word (lower is better)?",
+    "Correct Answer": "D",
+    "Answer A": "Precision",
+    "Answer B": "Recall",
+    "Answer C": "F1 score",
+    "Answer D": "Perplexity"
+  },
+  {
+    "Question": "Which deep learning framework is known for ease of use and dynamic computation graphs?",
+    "Correct Answer": "B",
+    "Answer A": "Scikit-learn",
+    "Answer B": "PyTorch",
+    "Answer C": "NLTK",
+    "Answer D": "Pandas"
+  }
+]

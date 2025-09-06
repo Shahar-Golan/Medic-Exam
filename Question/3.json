@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Which representation treats a document as a set of words and focuses on word frequency while ignoring order?",
+    "Correct Answer": "A",
+    "Answer A": "Bag-of-words",
+    "Answer B": "Bi-gram model",
+    "Answer C": "Embedding layer",
+    "Answer D": "Context vector"
+  },
+  {
+    "Question": "Which model uses context size one to predict the next word based only on the immediately preceding word?",
+    "Correct Answer": "B",
+    "Answer A": "Tri-gram model",
+    "Answer B": "Bi-gram model",
+    "Answer C": "CBOW",
+    "Answer D": "LLM"
+  },
+  {
+    "Question": "In the glossary, what is a context vector?",
+    "Correct Answer": "C",
+    "Answer A": "The average of one-hot vectors across a document",
+    "Answer B": "A vector of raw, unnormalized model outputs",
+    "Answer C": "Concatenated embedding vectors whose size equals context size × vocabulary size",
+    "Answer D": "A token index returned by the tokenizer"
+  },
+  {
+    "Question": "Which model predicts a target word from surrounding context words to learn its embedding?",
+    "Correct Answer": "C",
+    "Answer A": "Bi-gram model",
+    "Answer B": "Bag-of-words",
+    "Answer C": "CBOW",
+    "Answer D": "LLM"
+  },
+  {
+    "Question": "Which metric outputs a number between 0 and 1 where smaller values indicate better classification performance?",
+    "Correct Answer": "A",
+    "Answer A": "Cross-entropy loss",
+    "Answer B": "Accuracy",
+    "Answer C": "Logits",
+    "Answer D": "Learning rate"
+  },
+  {
+    "Question": "Which component enables efficient batching and shuffling with on-the-fly preprocessing to optimize memory?",
+    "Correct Answer": "B",
+    "Answer A": "Data set",
+    "Answer B": "Data loader",
+    "Answer C": "Embedding layer",
+    "Answer D": "Optimizer"
+  },
+  {
+    "Question": "Which layer maps token indices to dense vectors?",
+    "Correct Answer": "C",
+    "Answer A": "Output layer",
+    "Answer B": "Normalization layer",
+    "Answer C": "Embedding layer",
+    "Answer D": "Attention layer"
+  },
+  {
+    "Question": "What do we call adjusting a pretrained model to perform better on a specific task or data set?",
+    "Correct Answer": "D",
+    "Answer A": "Pretraining",
+    "Answer B": "Tokenization",
+    "Answer C": "Regularization",
+    "Answer D": "Fine-tuning"
+  },
+  {
+    "Question": "Which RNN variant uses gates to control information flow and can be trained quickly, similar to LSTMs?",
+    "Correct Answer": "A",
+    "Answer A": "GRUs",
+    "Answer B": "Simple RNNs",
+    "Answer C": "Transformers",
+    "Answer D": "Autoencoders"
+  },
+  {
+    "Question": "Which term refers to the weights and biases that are optimized during training?",
+    "Correct Answer": "C",
+    "Answer A": "Hyperparameters",
+    "Answer B": "Learning rate",
+    "Answer C": "Learnable parameters",
+    "Answer D": "Logits"
+  }
+]

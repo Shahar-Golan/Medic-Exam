@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Your GPU memory is limited but your data set is huge. Which component most directly helps you train by feeding mini-batches efficiently and shuffling data?",
+    "Correct Answer": "B",
+    "Answer A": "Embedding layer",
+    "Answer B": "Data loader",
+    "Answer C": "Context vector",
+    "Answer D": "Logits"
+  },
+  {
+    "Question": "You reduce your model’s cross-entropy loss from 0.42 to 0.31 on the validation set. What is the most reasonable conclusion?",
+    "Correct Answer": "A",
+    "Answer A": "Model classification performance has improved",
+    "Answer B": "Learning rate must have decreased",
+    "Answer C": "Vocabulary size has increased",
+    "Answer D": "The model is overfitting by definition"
+  },
+  {
+    "Question": "You need a sequence model that trains faster than LSTMs but still regulates information with gates. What should you choose?",
+    "Correct Answer": "D",
+    "Answer A": "Simple RNN",
+    "Answer B": "Transformer encoder",
+    "Answer C": "Autoencoder",
+    "Answer D": "GRU"
+  },
+  {
+    "Question": "You have a strong general model but it underperforms on domain-specific data (e.g., medical notes). What step most directly adapts it?",
+    "Correct Answer": "C",
+    "Answer A": "Increase batch size",
+    "Answer B": "Change token indices",
+    "Answer C": "Fine-tuning",
+    "Answer D": "Replace the optimizer"
+  },
+  {
+    "Question": "Your current approach ignores word order but you want to incorporate immediate local context when predicting the next token. Which model is the simplest upgrade?",
+    "Correct Answer": "B",
+    "Answer A": "Bag-of-words",
+    "Answer B": "Bi-gram model",
+    "Answer C": "CBOW",
+    "Answer D": "LLM"
+  },
+  {
+    "Question": "You need to convert integer token IDs into vectors that capture semantic similarity before passing them into a model. What should you use?",
+    "Correct Answer": "A",
+    "Answer A": "Embedding layer",
+    "Answer B": "Bag-of-words",
+    "Answer C": "Logits",
+    "Answer D": "Context vector size"
+  },
+  {
+    "Question": "Training is unstable and the loss spikes wildly. Which adjustment is most directly related to the step size taken during optimization?",
+    "Correct Answer": "C",
+    "Answer A": "Increase vocabulary size",
+    "Answer B": "Change from GRU to LSTM",
+    "Answer C": "Tune the learning rate",
+    "Answer D": "Replace embeddings with one-hot vectors"
+  },
+  {
+    "Question": "Your model outputs raw scores that still need activation (e.g., softmax) to become probabilities. What are these raw scores called?",
+    "Correct Answer": "D",
+    "Answer A": "Embeddings",
+    "Answer B": "Hyperparameters",
+    "Answer C": "Context vectors",
+    "Answer D": "Logits"
+  },
+  {
+    "Question": "You want a representation that better captures word meaning than simple counts to help downstream tasks generalize. What should you choose?",
+    "Correct Answer": "B",
+    "Answer A": "Bag-of-words",
+    "Answer B": "Embeddings (via an embedding layer)",
+    "Answer C": "Raw token indices",
+    "Answer D": "Bi-gram counts only"
+  },
+  {
+    "Question": "If your context window grows from 1 to 3 while vocabulary size stays V, what happens to the context vector size as defined in the glossary?",
+    "Correct Answer": "A",
+    "Answer A": "It triples from V to 3V",
+    "Answer B": "It stays V because only the most recent token matters",
+    "Answer C": "It becomes V²",
+    "Answer D": "It becomes V/3"
+  }
+]

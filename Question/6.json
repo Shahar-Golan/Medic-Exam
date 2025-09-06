@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "You need to translate sentences from English to French where both inputs and outputs are sequences. Which architecture is the best fit?",
+    "Correct Answer": "C",
+    "Answer A": "N-gram model",
+    "Answer B": "CNN image classifier",
+    "Answer C": "Sequence-to-sequence model",
+    "Answer D": "One-hot encoder only"
+  },
+  {
+    "Question": "You care about better generalization than one-hot vectors provide and want representations that capture word similarity. What should you use?",
+    "Correct Answer": "A",
+    "Answer A": "Word embeddings (e.g., Word2vec)",
+    "Answer B": "Raw token IDs",
+    "Answer C": "Character counts only",
+    "Answer D": "Stopword lists"
+  },
+  {
+    "Question": "Your language model’s perplexity on the validation set drops from 32 to 24. What’s the most reasonable interpretation?",
+    "Correct Answer": "D",
+    "Answer A": "Vocabulary must have doubled",
+    "Answer B": "Training data size decreased",
+    "Answer C": "Model is necessarily overfitting",
+    "Answer D": "Model’s next-word predictions improved"
+  },
+  {
+    "Question": "You must model long-term dependencies in time-series text and mitigate vanishing gradients. Which approach is most appropriate?",
+    "Correct Answer": "B",
+    "Answer A": "Plain RNN",
+    "Answer B": "LSTM",
+    "Answer C": "N-gram counts",
+    "Answer D": "One-hot encoding"
+  },
+  {
+    "Question": "You have limited labels and a simulator that reflects real-world uncertainty. Which method helps you estimate outcome distributions?",
+    "Correct Answer": "C",
+    "Answer A": "Greedy decoding",
+    "Answer B": "TF–IDF weighting",
+    "Answer C": "Monte Carlo sampling",
+    "Answer D": "Dropout only"
+  },
+  {
+    "Question": "You want to incorporate immediate word order without training a full recurrent model. What’s a simple modeling step to try first?",
+    "Correct Answer": "A",
+    "Answer A": "Increase n in an N-gram model",
+    "Answer B": "Remove all punctuation",
+    "Answer C": "Switch to image convolutions",
+    "Answer D": "Only use one-hot encoding"
+  },
+  {
+    "Question": "You need dense vectors learned from large text corpora to initialize a downstream NLP model. Which choice aligns best?",
+    "Correct Answer": "B",
+    "Answer A": "One-hot vectors with a huge dimension",
+    "Answer B": "Word2vec embeddings",
+    "Answer C": "Label smoothing values",
+    "Answer D": "Perplexity scores"
+  },
+  {
+    "Question": "You are prototyping new sequence models and prefer a framework with dynamic computation graphs for fast iteration. What should you pick?",
+    "Correct Answer": "D",
+    "Answer A": "NLTK",
+    "Answer B": "A fixed-graph-only framework",
+    "Answer C": "Regular expressions",
+    "Answer D": "PyTorch"
+  },
+  {
+    "Question": "Your text preprocessing pipeline must tokenize and normalize raw text before modeling. Which tool directly supports this?",
+    "Correct Answer": "C",
+    "Answer A": "Word2vec training only",
+    "Answer B": "Perplexity calculator",
+    "Answer C": "NLTK",
+    "Answer D": "Sequence-to-sequence decoder"
+  },
+  {
+    "Question": "You’re comparing Skip-gram and CBOW to represent rare words. Which approach directly predicts surrounding words from the target and often works well for rare targets?",
+    "Correct Answer": "A",
+    "Answer A": "Skip-gram",
+    "Answer B": "CBOW",
+    "Answer C": "One-hot encoding",
+    "Answer D": "N-gram model"
+  }
+]

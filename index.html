@@ -267,28 +267,25 @@
           <h3>Required Excel Format:</h3>
           <table class="format-table">
             <tr>
-              <th>Category</th>
               <th>Question</th>
               <th>Correct Answer</th>
               <th>Answer A</th>
               <th>Answer B</th>
               <th>Answer C</th>
               <th>Answer D</th>
-              <th>Answer E</th>
             </tr>
             <tr>
-              <td>Medic_Exam</td>
-              <td>כמה ראשים יש לשריר ה-בייספס</td>
-              <td>B</td>
-              <td>ראש אחד</td>
-              <td>שני ראשים</td>
-              <td>שלושה ראשים</td>
-              <td>20 ראשים</td>
-              <td>אין תשובה נכונה</td>
+              <td>Which of the following is a key feature of deep learning?</td>
+              <td>C</td>
+              <td>Shallow neural networks only</td>
+              <td>Manual feature engineering is always required</td>
+              <td>Learning hierarchical representations from data</td>
+              <td>Only works for tabular data</td>
             </tr>
           </table>
           <p class="format-note">
-            * In the "Correct Answer" column, please specify A, B, C, or D
+            * In the "Correct Answer" column, please specify A, B, C, or D.<br>
+            * Both Hebrew and English questions are supported.
           </p>
         </div>
         <button onclick="document.getElementById('excel-file').click()">Select File</button>
@@ -331,16 +328,12 @@
           <label for="edit-answerD">Answer D:</label>
           <input id="edit-answerD" type="text">
 
-          <label for="edit-answerE">Answer E:</label>
-          <input id="edit-answerE" type="text">
-
-          <label for="edit-correctAnswer">Correct Answer (A/B/C/D/E):</label>
+          <label for="edit-correctAnswer">Correct Answer (A/B/C/D):</label>
           <select id="edit-correctAnswer">
             <option value="0">A</option>
             <option value="1">B</option>
             <option value="2">C</option>
             <option value="3">D</option>
-            <option value="4">E</option>
           </select>
 
           <div style="margin-top: 20px;">
@@ -418,28 +411,26 @@
       // data[0] is the header row. Start from row 1
       for (let i = 1; i < data.length; i++) {
         const row = data[i];
-        // Expecting at least 7 columns: Category, Question, Correct, A, B, C, D
-        if (!row || row.length < 7) continue;
+        // Expecting at least 5 columns: Question, Correct, A, B, C, D
+        if (!row || row.length < 6) continue;
 
-        // row[0] = Category (optional)
-        // row[1] = Question
-        // row[2] = Correct Answer (A/B/C/D)
-        // row[3] = Answer A
-        // row[4] = Answer B
-        // row[5] = Answer C
-        // row[6] = Answer D
+        // row[0] = Question
+        // row[1] = Correct Answer (A/B/C/D)
+        // row[2] = Answer A
+        // row[3] = Answer B
+        // row[4] = Answer C
+        // row[5] = Answer D
 
-        const questionText = row[1];
-        const correctAnswerLetter = String(row[2]).trim().toUpperCase();
+        const questionText = row[0];
+        const correctAnswerLetter = String(row[1]).trim().toUpperCase();
         // Convert letter to index (A -> 0, B -> 1, C -> 2, D -> 3)
         const originalCorrectIndex = correctAnswerLetter.charCodeAt(0) - 65;
 
         const answersWithIndices = [
-          { text: row[3], index: 0 }, 
-          { text: row[4], index: 1 },
-          { text: row[5], index: 2 },
-          { text: row[6], index: 3 },
-          { text: row[7], index: 4 }
+          { text: row[2], index: 0 }, 
+          { text: row[3], index: 1 },
+          { text: row[4], index: 2 },
+          { text: row[5], index: 3 }
         ].filter(ans => ans.text); // Filter out any empty answers
 
         // Basic validation
@@ -653,7 +644,6 @@
       document.getElementById('edit-answerB').value = row[4] || '';
       document.getElementById('edit-answerC').value = row[5] || '';
       document.getElementById('edit-answerD').value = row[6] || '';
-      document.getElementById('edit-answerE').value = row[7] || '';
 
       // Set correct answer select
       document.getElementById('edit-correctAnswer').value = questionObj.correctIndex;
@@ -682,21 +672,18 @@
         { text: newA, index: 0 },
         { text: newB, index: 1 },
         { text: newC, index: 2 },
-        { text: newD, index: 3 },
-        { text: newE, index: 4 }
+        { text: newD, index: 3 }
       ].filter(ans => ans.text);
 
       // Update the raw excelData
-      // Format: [Category, Question, Correct, A, B, C, D]
-      const row = excelData[rowIndex];
-      // row[0] = category (unchanged)
-      row[1] = newQuestion;
-      row[2] = String.fromCharCode(65 + newCorrectIndex); // 0->A,1->B,2->C,3->D
-      row[3] = newA;
-      row[4] = newB;
-      row[5] = newC;
-      row[6] = newD;
-      row[7] = newE;
+  // Format: [Question, Correct, A, B, C, D]
+  const row = excelData[rowIndex];
+  row[0] = newQuestion;
+  row[1] = String.fromCharCode(65 + newCorrectIndex); // 0->A,1->B,2->C,3->D
+  row[2] = newA;
+  row[3] = newB;
+  row[4] = newC;
+  row[5] = newD;
 
       // Hide edit container and refresh question
       document.getElementById('edit-container').style.display = 'none';
