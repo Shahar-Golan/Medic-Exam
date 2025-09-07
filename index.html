@@ -391,33 +391,38 @@
       if (file) handleFile(file);
     });
 
-  function handleFile(file) {
-    // Load default file (output.xlsx) if user clicks the button
-    document.getElementById('load-default-btn').addEventListener('click', function() {
-      fetch('output.xlsx')
-        .then(response => response.blob())
-        .then(blob => {
-          const file = new File([blob], 'output.xlsx', { type: blob.type });
-          handleFile(file);
-        })
-        .catch(() => alert('Default file (output.xlsx) not found.'));
-    });
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, {type: 'array'});
-        // Assume first sheet
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
-        
-        // Convert to JSON (array of arrays)
-        const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
-        excelData = jsonData; // Store the raw data for later updates
 
-        parseExcelData(jsonData);
-      };
-      reader.readAsArrayBuffer(file);
-    }
+  // Attach the event handler for the default file button on page load
+  document.getElementById('load-default-btn').addEventListener('click', function() {
+    fetch('output.xlsx')
+      .then(response => {
+        if (!response.ok) throw new Error('File not found');
+        return response.blob();
+      })
+      .then(blob => {
+        const file = new File([blob], 'output.xlsx', { type: blob.type });
+        handleFile(file);
+      })
+      .catch(() => alert('Default file (output.xlsx) not found.'));
+  });
+
+  function handleFile(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const data = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(data, {type: 'array'});
+      // Assume first sheet
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+      
+      // Convert to JSON (array of arrays)
+      const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+      excelData = jsonData; // Store the raw data for later updates
+
+      parseExcelData(jsonData);
+    };
+    reader.readAsArrayBuffer(file);
+  }
 
     // Parse the Excel data into our questions structure
     function parseExcelData(data) {
