@@ -262,7 +262,7 @@
       <!-- File Upload Section -->
       <div id="file-upload" class="file-upload">
         <input type="file" id="excel-file" accept=".xlsx,.xls" style="display: none">
-        <button id="load-default-btn" style="margin-bottom:10px;">Use Default File (output.xlsx)</button>
+        <button id="load-default-btn" style="margin-bottom:10px;">Use Default File</button>
         <p>Or drag &amp; drop an Excel file here or click to select</p>
         <div style="margin: 20px;">
           <h3>Required Excel Format:</h3>
@@ -276,7 +276,7 @@
               <th>Answer D</th>
             </tr>
             <tr>
-              <td>Which of the following is a key feature of deep learning? 8888888888888888888888</td>
+              <td>Which of the following is a key feature of deep learning?</td>
               <td>C</td>
               <td>Shallow neural networks only</td>
               <td>Manual feature engineering is always required</td>
@@ -312,40 +312,7 @@
         <button onclick="checkAnswer()" id="submitBtn">Check Answer</button>
         <button onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question</button>
         <button onclick="previousQuestion()" id="previousBtn" style="display: none;">Previous Question</button>
-        <button onclick="editQuestion()" id="editBtn" style="display: none;">Edit Question</button>
-        <button onclick="downloadUpdatedExcel()" id="downloadBtn" style="display: none;">Download Updated Excel</button>
 
-        <!-- Edit Question Form -->
-        <div id="edit-container">
-          <h3>Edit Question</h3>
-          <label for="edit-question-text">Question Text:</label>
-          <input id="edit-question-text" type="text">
-
-          <label for="edit-answerA">Answer A:</label>
-          <input id="edit-answerA" type="text">
-
-          <label for="edit-answerB">Answer B:</label>
-          <input id="edit-answerB" type="text">
-
-          <label for="edit-answerC">Answer C:</label>
-          <input id="edit-answerC" type="text">
-
-          <label for="edit-answerD">Answer D:</label>
-          <input id="edit-answerD" type="text">
-
-          <label for="edit-correctAnswer">Correct Answer (A/B/C/D):</label>
-          <select id="edit-correctAnswer">
-            <option value="0">A</option>
-            <option value="1">B</option>
-            <option value="2">C</option>
-            <option value="3">D</option>
-          </select>
-
-          <div style="margin-top: 20px;">
-            <button onclick="saveQuestionEdits()">Save Changes</button>
-            <button onclick="cancelQuestionEdits()">Cancel</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -427,21 +394,7 @@
     // Parse the Excel data into our questions structure
     function parseExcelData(data) {
       let allQuestions = [];
-      // Debug print: show question in row 20 (index 20, i.e. data[20])
-      let debugMsg = '';
-      if (data.length > 20 && data[20][0]) {
-        debugMsg = 'Row 20 Question: ' + data[20][0];
-      } else {
-        debugMsg = 'Row 20 not found or missing question.';
-      }
-      let debugDiv = document.getElementById('debug-row20');
-      if (!debugDiv) {
-        debugDiv = document.createElement('div');
-        debugDiv.id = 'debug-row20';
-        debugDiv.style = 'color: #b71c1c; font-weight: bold; margin: 10px 0;';
-        document.querySelector('.quiz-content').prepend(debugDiv);
-      }
-      debugDiv.textContent = debugMsg;
+  // ...debug row print removed...
 
       // data[0] is the header row. Start from row 1
       for (let i = 1; i < data.length; i++) {
@@ -537,8 +490,7 @@
       // Show/hide "Previous" button
       document.getElementById('previousBtn').style.display = (currentQuestionIndex > 0 && !reviewMode) ? 'inline-block' : 'none';
 
-      // Edit button always visible
-      document.getElementById('editBtn').style.display = 'inline-block';
+
 
       selectedOption = null;
       updateStats();
@@ -665,81 +617,7 @@
       document.getElementById('attempts').textContent = attemptCount;
     }
 
-    /************************************************************
-     * Editing Functionality
-     ************************************************************/
 
-    function editQuestion() {
-      const questionObj = questions[currentQuestionIndex];
-      const rowIndex = questionObj.rowIndex;
-
-      // Fill the form with current question data
-      document.getElementById('edit-question-text').value = questionObj.question;
-
-      // Use the row to ensure correct mapping
-      const row = excelData[rowIndex];
-      document.getElementById('edit-answerA').value = row[3] || '';
-      document.getElementById('edit-answerB').value = row[4] || '';
-      document.getElementById('edit-answerC').value = row[5] || '';
-      document.getElementById('edit-answerD').value = row[6] || '';
-
-      // Set correct answer select
-      document.getElementById('edit-correctAnswer').value = questionObj.correctIndex;
-
-      // Show edit container
-      document.getElementById('edit-container').style.display = 'block';
-    }
-
-    function saveQuestionEdits() {
-      const questionObj = questions[currentQuestionIndex];
-      const rowIndex = questionObj.rowIndex;
-
-      // Grab updated form values
-      const newQuestion = document.getElementById('edit-question-text').value;
-      const newA = document.getElementById('edit-answerA').value;
-      const newB = document.getElementById('edit-answerB').value;
-      const newC = document.getElementById('edit-answerC').value;
-      const newD = document.getElementById('edit-answerD').value;
-      const newE = document.getElementById('edit-answerE').value;
-      const newCorrectIndex = parseInt(document.getElementById('edit-correctAnswer').value, 10);
-
-      // Update in-memory object
-      questionObj.question = newQuestion;
-      questionObj.correctIndex = newCorrectIndex;
-      questionObj.answersWithIndices = [
-        { text: newA, index: 0 },
-        { text: newB, index: 1 },
-        { text: newC, index: 2 },
-        { text: newD, index: 3 }
-      ].filter(ans => ans.text);
-
-      // Update the raw excelData
-  // Format: [Question, Correct, A, B, C, D]
-  const row = excelData[rowIndex];
-  row[0] = newQuestion;
-  row[1] = String.fromCharCode(65 + newCorrectIndex); // 0->A,1->B,2->C,3->D
-  row[2] = newA;
-  row[3] = newB;
-  row[4] = newC;
-  row[5] = newD;
-
-      // Hide edit container and refresh question
-      document.getElementById('edit-container').style.display = 'none';
-      loadQuestion();
-    }
-
-    function cancelQuestionEdits() {
-      document.getElementById('edit-container').style.display = 'none';
-    }
-
-    function downloadUpdatedExcel() {
-      // Create a new workbook and sheet from the updated excelData
-      const newWorkbook = XLSX.utils.book_new();
-      const newWorksheet = XLSX.utils.aoa_to_sheet(excelData);
-
-      XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Sheet1');
-      XLSX.writeFile(newWorkbook, 'updated_questions.xlsx');
-    }
   </script>
 </body>
 </html>
