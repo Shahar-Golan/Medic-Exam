@@ -524,6 +524,7 @@
       const selectedOriginalIndex = questionObj.currentShuffledAnswers[selectedOption].index;
       const isCorrect = (selectedOriginalIndex === questionObj.correctIndex);
       
+
       if (isCorrect) {
         feedback.className = 'feedback success';
         feedback.textContent = 'Correct! Well done.';
@@ -534,23 +535,21 @@
         if (idx > -1) {
           incorrectQuestions.splice(idx, 1);
         }
+        feedback.style.display = 'block';
+        document.getElementById('submitBtn').style.display = 'none';
+        document.getElementById('nextBtn').style.display = 'inline-block';
       } else {
         feedback.className = 'feedback error';
-        // No need to print the correct answer, it is already highlighted in green
+        feedback.textContent = 'Incorrect, try again.';
         options[selectedOption].classList.add('incorrect');
-        const correctDisplayIndex = questionObj.currentShuffledAnswers.findIndex(
-          ans => ans.index === questionObj.correctIndex
-        );
-        options[correctDisplayIndex].classList.add('correct');
-
+        feedback.style.display = 'block';
+        // Keep submit button enabled so user can try again, do not show next button
+        document.getElementById('submitBtn').style.display = 'inline-block';
+        document.getElementById('nextBtn').style.display = 'none';
         if (!incorrectQuestions.includes(currentQuestionIndex)) {
           incorrectQuestions.push(currentQuestionIndex);
         }
       }
-
-      feedback.style.display = 'block';
-      document.getElementById('submitBtn').style.display = 'none';
-      document.getElementById('nextBtn').style.display = 'inline-block';
 
       updateStats();
     }
