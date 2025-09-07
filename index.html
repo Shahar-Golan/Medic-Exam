@@ -545,12 +545,11 @@
         }
       } else {
         feedback.className = 'feedback error';
+        // No need to print the correct answer, it is already highlighted in green
+        options[selectedOption].classList.add('incorrect');
         const correctDisplayIndex = questionObj.currentShuffledAnswers.findIndex(
           ans => ans.index === questionObj.correctIndex
         );
-        const correctText = questionObj.currentShuffledAnswers[correctDisplayIndex].text;
-        feedback.textContent = `Incorrect. The correct answer is: ${correctText}`;
-        options[selectedOption].classList.add('incorrect');
         options[correctDisplayIndex].classList.add('correct');
 
         if (!incorrectQuestions.includes(currentQuestionIndex)) {
