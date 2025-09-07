@@ -422,6 +422,22 @@
     // Parse the Excel data into our questions structure
     function parseExcelData(data) {
       let allQuestions = [];
+      // Debug print: show question in row 20 (index 20, i.e. data[20])
+      let debugMsg = '';
+      if (data.length > 20 && data[20][0]) {
+        debugMsg = 'Row 20 Question: ' + data[20][0];
+      } else {
+        debugMsg = 'Row 20 not found or missing question.';
+      }
+      let debugDiv = document.getElementById('debug-row20');
+      if (!debugDiv) {
+        debugDiv = document.createElement('div');
+        debugDiv.id = 'debug-row20';
+        debugDiv.style = 'color: #b71c1c; font-weight: bold; margin: 10px 0;';
+        document.querySelector('.quiz-content').prepend(debugDiv);
+      }
+      debugDiv.textContent = debugMsg;
+
       // data[0] is the header row. Start from row 1
       for (let i = 1; i < data.length; i++) {
         const row = data[i];
