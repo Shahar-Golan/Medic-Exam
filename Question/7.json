@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Question": "What is the main purpose of positional encoding in transformer models?",
+    "Correct Answer": "B",
+    "Answer A": "To increase model depth without gradient issues",
+    "Answer B": "To embed token order information into the inputs",
+    "Answer C": "To select the highest-probability next token",
+    "Answer D": "To mask future tokens during decoding"
+  },
+  {
+    "Question": "Which component lets a model focus on different parts of an input in parallel?",
+    "Correct Answer": "C",
+    "Answer A": "Argmax process",
+    "Answer B": "One-hot encoding",
+    "Answer C": "Multi-head attention",
+    "Answer D": "Next Sentence Prediction"
+  },
+  {
+    "Question": "Which learning objective reconstructs sentences where some words are hidden?",
+    "Correct Answer": "D",
+    "Answer A": "Autoregressive modeling",
+    "Answer B": "Next Sentence Prediction",
+    "Answer C": "Orthogonality",
+    "Answer D": "Masked language modeling"
+  },
+  {
+    "Question": "What does an autoregressive language model do?",
+    "Correct Answer": "A",
+    "Answer A": "Predicts each new token from previous tokens",
+    "Answer B": "Masks inputs and reconstructs them",
+    "Answer C": "Assigns each token a unique one-hot vector",
+    "Answer D": "Only classifies sentence pairs"
+  },
+  {
+    "Question": "Which pretraining approach trains a decoder to predict the next token in a sequence?",
+    "Correct Answer": "B",
+    "Answer A": "Masked language modeling",
+    "Answer B": "Generative pre-training (GPT)",
+    "Answer C": "Next Sentence Prediction",
+    "Answer D": "Add & Norm"
+  },
+  {
+    "Question": "Which item is a bidirectional, unsupervised language representation pretrained on plain text?",
+    "Correct Answer": "C",
+    "Answer A": "Decoder-only GPT",
+    "Answer B": "Multi-head attention",
+    "Answer C": "BERT",
+    "Answer D": "Positional encoding"
+  },
+  {
+    "Question": "Which utility feeds mini-batches and can shuffle data during training?",
+    "Correct Answer": "A",
+    "Answer A": "Data loader",
+    "Answer B": "Argmax process",
+    "Answer C": "Positional encoder",
+    "Answer D": "Orthogonality"
+  },
+  {
+    "Question": "Which step adapts a pretrained model to a specific downstream task (e.g., QA classification)?",
+    "Correct Answer": "D",
+    "Answer A": "Masking",
+    "Answer B": "Argmax",
+    "Answer C": "One-hot encoding",
+    "Answer D": "Fine-tuning"
+  },
+  {
+    "Question": "Which transformer sublayer pattern helps increase depth while mitigating gradient issues?",
+    "Correct Answer": "B",
+    "Answer A": "Positional encoding",
+    "Answer B": "Add and Norm",
+    "Answer C": "Argmax",
+    "Answer D": "Next Sentence Prediction"
+  },
+  {
+    "Question": "Which architecture is commonly used in sequence-to-sequence tasks (e.g., translation)?",
+    "Correct Answer": "C",
+    "Answer A": "Autoregressive model only",
+    "Answer B": "One-hot encoding",
+    "Answer C": "Decoder models",
+    "Answer D": "Masked language modeling"
+  }
+]

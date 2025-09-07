@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Question": "What is the process of adapting a pretrained model to a specific task or dataset by continuing training on new data?",
+    "Correct Answer": "B",
+    "Answer A": "Pretraining",
+    "Answer B": "Fine-tuning",
+    "Answer C": "Tokenization",
+    "Answer D": "Regularization"
+  },
+  {
+    "Question": "Which approach trains models using pairwise comparisons (preferences) instead of explicit numeric rewards?",
+    "Correct Answer": "A",
+    "Answer A": "Direct Preference Optimization (DPO)",
+    "Answer B": "Supervised fine-tuning (SFT)",
+    "Answer C": "Beam Search",
+    "Answer D": "Label smoothing"
+  },
+  {
+    "Question": "Which term measures how one probability distribution diverges from a reference distribution?",
+    "Correct Answer": "C",
+    "Answer A": "Cross-entropy loss",
+    "Answer B": "Perplexity",
+    "Answer C": "Kullback–Leibler (KL) divergence",
+    "Answer D": "Accuracy"
+  },
+  {
+    "Question": "What do we call the process of using a trained model to generate outputs for new inputs?",
+    "Correct Answer": "B",
+    "Answer A": "Optimization",
+    "Answer B": "Inference",
+    "Answer C": "Sampling",
+    "Answer D": "Initialization"
+  },
+  {
+    "Question": "Which option best describes a language model?",
+    "Correct Answer": "D",
+    "Answer A": "A system that labels images only",
+    "Answer B": "A tokenizer for splitting text",
+    "Answer C": "A loss function for classification",
+    "Answer D": "A model that predicts the probability of word sequences"
+  },
+  {
+    "Question": "Which technique adds small trainable low-rank matrices to a pretrained transformer to enable parameter-efficient fine-tuning?",
+    "Correct Answer": "A",
+    "Answer A": "LoRA (Low-Rank Adaptation)",
+    "Answer B": "Dropout",
+    "Answer C": "Data augmentation",
+    "Answer D": "Batch normalization"
+  },
+  {
+    "Question": "Which platform provides tools and libraries for building, training, and deploying transformer-based models?",
+    "Correct Answer": "C",
+    "Answer A": "OpenCV",
+    "Answer B": "NumPy",
+    "Answer C": "Hugging Face",
+    "Answer D": "matplotlib"
+  },
+  {
+    "Question": "Which dataset contains 50,000 movie reviews commonly used for sentiment analysis?",
+    "Correct Answer": "A",
+    "Answer A": "IMDB dataset",
+    "Answer B": "CIFAR-10",
+    "Answer C": "MNIST",
+    "Answer D": "SQuAD"
+  },
+  {
+    "Question": "Which item refers to varying input text lengths during preparation to make models more robust?",
+    "Correct Answer": "D",
+    "Answer A": "Beam search",
+    "Answer B": "Greedy decoding",
+    "Answer C": "Label smoothing",
+    "Answer D": "LengthSampler"
+  },
+  {
+    "Question": "Which function guides training by quantifying the difference between predictions and targets?",
+    "Correct Answer": "B",
+    "Answer A": "Optimizer",
+    "Answer B": "Loss function",
+    "Answer C": "Scheduler",
+    "Answer D": "Embedding"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Your model keeps repeating phrases during generation. Which decoding control should you increase to encourage more diverse outputs?",
+    "Correct Answer": "B",
+    "Answer A": "Learning rate",
+    "Answer B": "Repetition penalty",
+    "Answer C": "Batch size",
+    "Answer D": "Context window"
+  },
+  {
+    "Question": "You want to keep a checkpoint that acts as a baseline while you experiment with new policies, enabling apples-to-apples comparisons. What do you maintain?",
+    "Correct Answer": "A",
+    "Answer A": "Reference model",
+    "Answer B": "Partition function",
+    "Answer C": "Omega function",
+    "Answer D": "Objective function"
+  },
+  {
+    "Question": "You need an RL algorithm that improves the policy but with safeguards so updates don’t move it too far each step. Which should you choose?",
+    "Correct Answer": "C",
+    "Answer A": "Policy iteration without constraints",
+    "Answer B": "Unconstrained gradient ascent on rewards",
+    "Answer C": "Proximal Policy Optimization (PPO)",
+    "Answer D": "Random search"
+  },
+  {
+    "Question": "Your goal is to optimize a chatbot policy directly for expected reward rather than learning a value function first. What family of methods fits?",
+    "Correct Answer": "D",
+    "Answer A": "Imitation learning only",
+    "Answer B": "Value-based Q-learning",
+    "Answer C": "Evolution strategies",
+    "Answer D": "Policy gradient methods"
+  },
+  {
+    "Question": "You’re designing a loss that formally encodes the training objective (what should be minimized or maximized). Which construct are you specifying?",
+    "Correct Answer": "A",
+    "Answer A": "Objective function",
+    "Answer B": "Pipe outputs list",
+    "Answer C": "Optimizer state",
+    "Answer D": "Replay buffer"
+  },
+  {
+    "Question": "Your RLHF pipeline needs a component that takes user prompts, runs policy updates, and outputs improved responses. Which component best matches this role?",
+    "Correct Answer": "C",
+    "Answer A": "Tokenizer",
+    "Answer B": "Partition function",
+    "Answer C": "PPO trainer",
+    "Answer D": "Argmax decoder"
+  },
+  {
+    "Question": "You’re analyzing how the model assigns probabilities to the next token given the past context and want a symbol to denote that detailed distribution. Which notation is used?",
+    "Correct Answer": "B",
+    "Answer A": "π (pi) policy",
+    "Answer B": "Ω (omega) function",
+    "Answer C": "Z (partition) function",
+    "Answer D": "ξ (xi) scheduler"
+  },
+  {
+    "Question": "Your Hugging Face sentiment pipeline returns a list of scores for generated outputs and you want to store them for later filtering. Where do these live by design?",
+    "Correct Answer": "D",
+    "Answer A": "Replay buffer",
+    "Answer B": "Optimizer state",
+    "Answer C": "Reward table",
+    "Answer D": "Pipe outputs list"
+  },
+  {
+    "Question": "To compute probabilities over actions, you must normalize scores across a combinatorially large set of outcomes. Which construct performs this normalization?",
+    "Correct Answer": "A",
+    "Answer A": "Partition function",
+    "Answer B": "Reference model",
+    "Answer C": "Objective function",
+    "Answer D": "Policy gradient"
+  },
+  {
+    "Question": "You’re shaping behavior by telling the model which actions are better or worse after it acts. What function encodes this guidance numerically?",
+    "Correct Answer": "C",
+    "Answer A": "Optimization function",
+    "Answer B": "Partition function",
+    "Answer C": "Reward function",
+    "Answer D": "Pipe outputs list"
+  }
+]

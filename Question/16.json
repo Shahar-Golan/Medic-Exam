@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Your generations are too deterministic and repetitive. Which single change most directly increases variety without altering the model weights?",
+    "Correct Answer": "B",
+    "Answer A": "Decrease batch size",
+    "Answer B": "Increase temperature (τ)",
+    "Answer C": "Lower learning rate",
+    "Answer D": "Switch to greedy decoding"
+  },
+  {
+    "Question": "You want diversity but also to avoid very low-probability tokens. Which method filters to a fixed-size candidate set before sampling?",
+    "Correct Answer": "A",
+    "Answer A": "Top-k sampling",
+    "Answer B": "Top-p (nucleus) sampling",
+    "Answer C": "Greedy decoding",
+    "Answer D": "Beam search"
+  },
+  {
+    "Question": "For context-dependent diversity, you prefer a variable-size candidate set determined by cumulative probability mass. Which method is this?",
+    "Correct Answer": "C",
+    "Answer A": "Temperature-only decoding",
+    "Answer B": "Top-k sampling",
+    "Answer C": "Top-p (nucleus) sampling",
+    "Answer D": "Argmax"
+  },
+  {
+    "Question": "You’re shaping a chatbot to be more helpful and positive using PPO. Which signal can you plug in as a reward to guide policy updates?",
+    "Correct Answer": "D",
+    "Answer A": "Learning rate schedule",
+    "Answer B": "Batch size",
+    "Answer C": "Optimizer momentum",
+    "Answer D": "Sentiment score from a sentiment pipeline"
+  },
+  {
+    "Question": "You need to keep track of PPO training metrics (e.g., rewards, KL, lengths) across batches for analysis. Where is this commonly collected?",
+    "Correct Answer": "A",
+    "Answer A": "stats_all",
+    "Answer B": "trainer.checkpoints",
+    "Answer C": "optimizer.state_dict",
+    "Answer D": "tokenizer.backend"
+  },
+  {
+    "Question": "You want your policy to more strongly favor responses that historically yielded higher rewards during training. What distributional change captures this?",
+    "Correct Answer": "B",
+    "Answer A": "Uniform action sampling",
+    "Answer B": "Shift to a reward-weighted distribution",
+    "Answer C": "Unnormalized logits",
+    "Answer D": "Label smoothing"
+  },
+  {
+    "Question": "After adjusting generation settings, outputs are too random. What’s the most direct single parameter to reduce randomness without changing the model?",
+    "Correct Answer": "C",
+    "Answer A": "Decrease batch size",
+    "Answer B": "Increase top-k",
+    "Answer C": "Lower temperature (τ)",
+    "Answer D": "Use a larger optimizer"
+  },
+  {
+    "Question": "You collect multiple candidate responses per prompt to estimate which policy behaves better under PPO. What is this process called?",
+    "Correct Answer": "D",
+    "Answer A": "Checkpointing",
+    "Answer B": "Gradient accumulation",
+    "Answer C": "Curriculum learning",
+    "Answer D": "Rollout"
+  },
+  {
+    "Question": "You’re implementing a multi-class classifier head and need probabilities over labels from logits. Which function must you apply?",
+    "Correct Answer": "A",
+    "Answer A": "Softmax",
+    "Answer B": "Sigmoid",
+    "Answer C": "Tanh",
+    "Answer D": "ReLU"
+  },
+  {
+    "Question": "You plan to actually start model training with Hugging Face’s high-level API. Which call kicks off the training loop?",
+    "Correct Answer": "B",
+    "Answer A": "trainer.state",
+    "Answer B": "Trainer.train()",
+    "Answer C": "Trainer.soft_reset()",
+    "Answer D": "Trainer.decode()"
+  }
+]

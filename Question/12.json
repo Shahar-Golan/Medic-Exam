@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Your raters can reliably say which output is better but cannot assign consistent numeric scores. Which training approach fits best?",
+    "Correct Answer": "A",
+    "Answer A": "Direct Preference Optimization (DPO)",
+    "Answer B": "Pure reward modeling with absolute scores",
+    "Answer C": "Unsupervised clustering",
+    "Answer D": "Greedy decoding only"
+  },
+  {
+    "Question": "Your generator sometimes rambles. Which setting helps you reliably cap the output length?",
+    "Correct Answer": "C",
+    "Answer A": "Top-p",
+    "Answer B": "Temperature",
+    "Answer C": "Max tokens",
+    "Answer D": "Batch size"
+  },
+  {
+    "Question": "During RL fine-tuning you want the updated policy to stay close to the original. What should you explicitly penalize?",
+    "Correct Answer": "D",
+    "Answer A": "High entropy",
+    "Answer B": "Longer sequences",
+    "Answer C": "Low reward variance",
+    "Answer D": "KL divergence from the reference policy"
+  },
+  {
+    "Question": "You need to adapt a large transformer with limited VRAM while keeping most weights frozen. What’s the most suitable technique?",
+    "Correct Answer": "B",
+    "Answer A": "Train the full model end-to-end",
+    "Answer B": "LoRA (attach low-rank adapters)",
+    "Answer C": "Only increase batch size",
+    "Answer D": "Switch to character-level modeling"
+  },
+  {
+    "Question": "You want a quick sentiment baseline for movie reviews without collecting new labels. Which resource is the most direct fit?",
+    "Correct Answer": "A",
+    "Answer A": "IMDB dataset",
+    "Answer B": "CIFAR-10",
+    "Answer C": "ImageNet",
+    "Answer D": "LibriSpeech"
+  },
+  {
+    "Question": "You’re deploying a chatbot and need a term for the phase where the model produces an answer to a user question. What is this phase?",
+    "Correct Answer": "B",
+    "Answer A": "Backpropagation",
+    "Answer B": "Inference",
+    "Answer C": "Regularization",
+    "Answer D": "Data augmentation"
+  },
+  {
+    "Question": "To improve robustness, you randomize input chunk lengths during preprocessing so the model handles varied contexts. Which method captures this idea?",
+    "Correct Answer": "D",
+    "Answer A": "Teacher forcing",
+    "Answer B": "Weight decay",
+    "Answer C": "Reward shaping",
+    "Answer D": "LengthSampler"
+  },
+  {
+    "Question": "You’d like to use pretrained transformer checkpoints and push your fine-tuned model for others to try quickly. Which platform streamlines this?",
+    "Correct Answer": "C",
+    "Answer A": "LaTeX",
+    "Answer B": "OpenCV",
+    "Answer C": "Hugging Face",
+    "Answer D": "SQLite"
+  },
+  {
+    "Question": "For a given prompt, your model returns probabilities over many possible continuations. What concept does this describe?",
+    "Correct Answer": "A",
+    "Answer A": "A probability distribution over responses",
+    "Answer B": "A fixed deterministic mapping",
+    "Answer C": "A single ground-truth label",
+    "Answer D": "A confusion matrix"
+  },
+  {
+    "Question": "You’ve got a strong general LM that underperforms on domain-specific Q&A. What is the most direct next step?",
+    "Correct Answer": "B",
+    "Answer A": "Lower the max tokens",
+    "Answer B": "Fine-tune on in-domain data",
+    "Answer C": "Only change the tokenizer",
+    "Answer D": "Increase sampling temperature"
+  }
+]

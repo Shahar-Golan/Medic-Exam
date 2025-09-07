@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Question": "Your model’s next-token predictions are logits. To sample a token according to predicted probabilities, what’s the next step?",
+    "Correct Answer": "C",
+    "Answer A": "Apply ReLU and argmax",
+    "Answer B": "Normalize with L2 norm",
+    "Answer C": "Apply softmax to turn logits into probabilities",
+    "Answer D": "Reduce with mean pooling"
+  },
+  {
+    "Question": "You want the model to emphasize words that are most relevant to a given token while reading a sentence. Which mechanism enables this?",
+    "Correct Answer": "B",
+    "Answer A": "Beam search",
+    "Answer B": "Self-attention",
+    "Answer C": "Label smoothing",
+    "Answer D": "Batch normalization"
+  },
+  {
+    "Question": "Dot products in attention are growing too large and destabilizing training. What architectural idea directly mitigates this?",
+    "Correct Answer": "A",
+    "Answer A": "Scaling in scaled dot-product attention",
+    "Answer B": "Using a larger batch size only",
+    "Answer C": "Replacing linear layers with CNNs",
+    "Answer D": "Switching to GRUs"
+  },
+  {
+    "Question": "You’re building a chatbot and want its behavior to align better with human preferences. Which approach best targets this goal?",
+    "Correct Answer": "D",
+    "Answer A": "Increase tokenization granularity",
+    "Answer B": "Use only self-attention without fine-tuning",
+    "Answer C": "Add more vector features",
+    "Answer D": "Fine-tune with RLHF guided by human feedback"
+  },
+  {
+    "Question": "Before feeding text into a model, you need to convert it into a sequence the model can process. What step is essential?",
+    "Correct Answer": "B",
+    "Answer A": "Apply softmax to each character",
+    "Answer B": "Tokenization",
+    "Answer C": "Run PCA on the corpus",
+    "Answer D": "Initialize random vectors for each sentence"
+  },
+  {
+    "Question": "You must build a near real-time translator for spoken phrases. Which core model family is most appropriate?",
+    "Correct Answer": "A",
+    "Answer A": "Transformer",
+    "Answer B": "KNN classifier",
+    "Answer C": "Naive Bayes",
+    "Answer D": "DBSCAN"
+  },
+  {
+    "Question": "You’re storing a mapping from each question ID to its correct answer letter in your quiz app. Which data structure is ideal?",
+    "Correct Answer": "C",
+    "Answer A": "A list of repeated keys",
+    "Answer B": "A tuple of all answers",
+    "Answer C": "A Python dictionary (key–value pairs)",
+    "Answer D": "A single scalar variable"
+  },
+  {
+    "Question": "In a transformer, you want the model to focus on multiple relevant words when predicting the next token. What enables this weighting?",
+    "Correct Answer": "B",
+    "Answer A": "Softmax alone without attention",
+    "Answer B": "Self-attention computing weights across words",
+    "Answer C": "Only increasing hidden size",
+    "Answer D": "Deterministic argmax decoding"
+  },
+  {
+    "Question": "You have feature representations as arrays of numbers for downstream ML algorithms. Conceptually, what are these called?",
+    "Correct Answer": "D",
+    "Answer A": "Tokens",
+    "Answer B": "Graphs",
+    "Answer C": "Logits",
+    "Answer D": "Vectors"
+  },
+  {
+    "Question": "You’re prototyping quickly in Python and need to build and train neural networks with minimal boilerplate. What should you pick?",
+    "Correct Answer": "A",
+    "Answer A": "PyTorch",
+    "Answer B": "A plotting library",
+    "Answer C": "Only raw NumPy without autograd",
+    "Answer D": "A SQL database"
+  }
+]

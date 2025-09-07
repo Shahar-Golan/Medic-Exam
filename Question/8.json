@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Question": "You’re building a fill-in-the-blank system where some words are hidden and must be reconstructed from surrounding context. Which training objective best fits?",
+    "Correct Answer": "D",
+    "Answer A": "Autoregressive next-token prediction",
+    "Answer B": "Next Sentence Prediction",
+    "Answer C": "Argmax decoding only",
+    "Answer D": "Masked language modeling"
+  },
+  {
+    "Question": "For next-token generation at inference, which simple decoding step chooses the highest-scoring token index from the model’s output?",
+    "Correct Answer": "A",
+    "Answer A": "Argmax process",
+    "Answer B": "Add & Norm",
+    "Answer C": "Positional encoding",
+    "Answer D": "Next Sentence Prediction"
+  },
+  {
+    "Question": "Your model must capture multiple complementary relationships (e.g., syntax and long-range cues) at the same time. What mechanism enables this?",
+    "Correct Answer": "C",
+    "Answer A": "One-hot encoding",
+    "Answer B": "Masking",
+    "Answer C": "Multi-head attention",
+    "Answer D": "Orthogonality"
+  },
+  {
+    "Question": "You removed recurrence and convolution but still need the model to know token order. What should you add?",
+    "Correct Answer": "B",
+    "Answer A": "Argmax",
+    "Answer B": "Positional encoding",
+    "Answer C": "One-hot vectors",
+    "Answer D": "Next Sentence Prediction"
+  },
+  {
+    "Question": "A general GPT-style model works well on generic text but underperforms on your QA task. What change best targets your task?",
+    "Correct Answer": "D",
+    "Answer A": "Increase context length only",
+    "Answer B": "Switch to one-hot encoding",
+    "Answer C": "Use argmax at every layer",
+    "Answer D": "Fine-tuning on QA data"
+  },
+  {
+    "Question": "You want a model that uses information from both left and right context for understanding a token’s meaning in a sentence. Which pretraining family aligns?",
+    "Correct Answer": "A",
+    "Answer A": "BERT-style (bidirectional) pretraining",
+    "Answer B": "Purely autoregressive GPT",
+    "Answer C": "Decoder-only with no masking",
+    "Answer D": "One-hot encoding"
+  },
+  {
+    "Question": "Training becomes unstable as you deepen the network. Which architectural pattern specifically helps stabilize and scale depth?",
+    "Correct Answer": "B",
+    "Answer A": "Argmax decoding",
+    "Answer B": "Add and Norm",
+    "Answer C": "Next Sentence Prediction",
+    "Answer D": "One-hot encoding"
+  },
+  {
+    "Question": "You are preparing a translation system where outputs are generated token by token from prior tokens. Which modeling setup matches this behavior?",
+    "Correct Answer": "C",
+    "Answer A": "Masked language modeling",
+    "Answer B": "Pure classification head only",
+    "Answer C": "Autoregressive decoding",
+    "Answer D": "Next Sentence Prediction"
+  },
+  {
+    "Question": "Your inputs are long documents and you need to trade off speed vs. context coverage. Which hyperparameter governs how many previous tokens the model can use?",
+    "Correct Answer": "A",
+    "Answer A": "Context length",
+    "Answer B": "Argmax threshold",
+    "Answer C": "Positional amplitude",
+    "Answer D": "Number of heads in attention"
+  },
+  {
+    "Question": "You have limited memory and must stream data in small chunks while training. Which component best addresses this constraint?",
+    "Correct Answer": "D",
+    "Answer A": "Positional encoding",
+    "Answer B": "Add & Norm",
+    "Answer C": "One-hot encoding",
+    "Answer D": "Data loader"
+  }
+]

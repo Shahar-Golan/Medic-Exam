@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "Question": "Which description best matches PyTorch?",
+    "Correct Answer": "B",
+    "Answer A": "A library for image editing and graphic design",
+    "Answer B": "An open-source deep learning framework that combines Torch with a Python high-level API",
+    "Answer C": "A data visualization package for plotting neural graphs",
+    "Answer D": "A database engine optimized for token search"
+  },
+  {
+    "Question": "What is a Python dictionary primarily used for?",
+    "Correct Answer": "A",
+    "Answer A": "Storing key–value pairs for fast lookup and manipulation",
+    "Answer B": "Rendering charts and plots",
+    "Answer C": "Parallel GPU operations only",
+    "Answer D": "Converting probabilities to logits"
+  },
+  {
+    "Question": "What is Reinforcement Learning from Human Feedback (RLHF) mainly used for?",
+    "Correct Answer": "D",
+    "Answer A": "Compressing vectors into smaller dimensions",
+    "Answer B": "Speeding up matrix multiplication in attention",
+    "Answer C": "Tokenizing multilingual corpora",
+    "Answer D": "Fine-tuning models using human feedback, effective for chatbots"
+  },
+  {
+    "Question": "Which mechanism uses queries, keys, and a scaling factor to control dot products?",
+    "Correct Answer": "C",
+    "Answer A": "Self-attention",
+    "Answer B": "Softmax",
+    "Answer C": "Scaled dot-product attention",
+    "Answer D": "Beam search"
+  },
+  {
+    "Question": "What does the self-attention mechanism compute for each word?",
+    "Correct Answer": "B",
+    "Answer A": "The raw logits over the vocabulary",
+    "Answer B": "Weights over other words to capture contextual influence",
+    "Answer C": "The gradient norms for each layer",
+    "Answer D": "The next sentence probability"
+  },
+  {
+    "Question": "In NLP, what does 'semantic' refer to?",
+    "Correct Answer": "A",
+    "Answer A": "Meaning and interpretation of language",
+    "Answer B": "Counting character n-grams",
+    "Answer C": "Syntactic tree construction only",
+    "Answer D": "GPU memory allocation"
+  },
+  {
+    "Question": "What is 'simple language modeling' trying to predict?",
+    "Correct Answer": "D",
+    "Answer A": "Sentence-level embeddings",
+    "Answer B": "Part-of-speech tags",
+    "Answer C": "Dependency edges",
+    "Answer D": "The next word in a sentence"
+  },
+  {
+    "Question": "Which function converts raw scores into probabilities?",
+    "Correct Answer": "C",
+    "Answer A": "ReLU",
+    "Answer B": "Sigmoid (binary only)",
+    "Answer C": "Softmax",
+    "Answer D": "Tanh"
+  },
+  {
+    "Question": "What is tokenization?",
+    "Correct Answer": "B",
+    "Answer A": "Normalizing vectors to unit length",
+    "Answer B": "Breaking text into tokens for model processing",
+    "Answer C": "Sorting vocabulary by frequency",
+    "Answer D": "Mapping tokens back to characters"
+  },
+  {
+    "Question": "Which model family can translate text and speech in near real-time?",
+    "Correct Answer": "A",
+    "Answer A": "Transformer models",
+    "Answer B": "K-means clustering",
+    "Answer C": "Logistic regression",
+    "Answer D": "Rule-based parsers"
+  }
+]

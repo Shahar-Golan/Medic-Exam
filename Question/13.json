@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "Which term names the mathematical target you define to guide training—minimized or maximized during learning?",
+    "Correct Answer": "A",
+    "Answer A": "Objective function",
+    "Answer B": "Reward sample",
+    "Answer C": "Activation function",
+    "Answer D": "Gradient norm"
+  },
+  {
+    "Question": "In reinforcement learning, what symbol commonly denotes the policy that maps states to action probabilities?",
+    "Correct Answer": "B",
+    "Answer A": "Ω (omega) function",
+    "Answer B": "π (pi) policy",
+    "Answer C": "Partition function",
+    "Answer D": "Reference model"
+  },
+  {
+    "Question": "Which concept sums over all possible outcomes to normalize probabilities in large outcome spaces?",
+    "Correct Answer": "C",
+    "Answer A": "Objective function",
+    "Answer B": "Reward function",
+    "Answer C": "Partition function",
+    "Answer D": "Policy gradient"
+  },
+  {
+    "Question": "What do we call the process of adjusting model parameters to improve performance (for example, by minimizing a loss)?",
+    "Correct Answer": "D",
+    "Answer A": "Initialization",
+    "Answer B": "Regularization",
+    "Answer C": "Decoding",
+    "Answer D": "Optimization"
+  },
+  {
+    "Question": "Which item is a pre-trained baseline kept for comparison during further training or tuning?",
+    "Correct Answer": "A",
+    "Answer A": "Reference model",
+    "Answer B": "π (pi) policy",
+    "Answer C": "Omega function",
+    "Answer D": "PPO trainer"
+  },
+  {
+    "Question": "Which RL method directly optimizes the policy by maximizing expected reward?",
+    "Correct Answer": "C",
+    "Answer A": "Value iteration",
+    "Answer B": "Beam search",
+    "Answer C": "Policy gradient",
+    "Answer D": "Grid search"
+  },
+  {
+    "Question": "Which algorithm stabilizes updates by preventing overly large policy changes during training?",
+    "Correct Answer": "B",
+    "Answer A": "Q-learning",
+    "Answer B": "Proximal Policy Optimization (PPO)",
+    "Answer C": "Tabular Monte Carlo",
+    "Answer D": "Greedy decoding"
+  },
+  {
+    "Question": "Which class holds key settings such as model choice and learning rate for PPO training?",
+    "Correct Answer": "D",
+    "Answer A": "RewardConfig",
+    "Answer B": "OptimizerState",
+    "Answer C": "PolicyArgs",
+    "Answer D": "PPO config class"
+  },
+  {
+    "Question": "Which trainer processes queries and optimizes chatbot policies to yield high-quality responses?",
+    "Correct Answer": "A",
+    "Answer A": "PPO trainer",
+    "Answer B": "SGD trainer",
+    "Answer C": "Autoencoder trainer",
+    "Answer D": "Decoding scheduler"
+  },
+  {
+    "Question": "Which technique guides training using human feedback, widely used to align large language models?",
+    "Correct Answer": "C",
+    "Answer A": "Self-play only",
+    "Answer B": "Supervised pretraining",
+    "Answer C": "Reinforcement Learning from Human Feedback (RLHF)",
+    "Answer D": "Dropout annealing"
+  }
+]

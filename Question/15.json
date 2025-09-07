@@ -1,0 +1,82 @@
+[
+  {
+    "Question": "What is a reward-weighted distribution in reinforcement learning?",
+    "Correct Answer": "A",
+    "Answer A": "A probability distribution adjusted by obtained rewards to favor higher-reward actions",
+    "Answer B": "A uniform distribution over all actions",
+    "Answer C": "A prior over model parameters",
+    "Answer D": "A histogram of rollout lengths"
+  },
+  {
+    "Question": "In the context of language-model training/evaluation, what is a rollout?",
+    "Correct Answer": "C",
+    "Answer A": "A gradient accumulation step",
+    "Answer B": "A static batch of prompts with no generation",
+    "Answer C": "Generating different model responses for a given query to evaluate a policy",
+    "Answer D": "A dataset shuffling epoch"
+  },
+  {
+    "Question": "What does sampling mean when a language model generates text?",
+    "Correct Answer": "B",
+    "Answer A": "Always taking the highest-probability token",
+    "Answer B": "Randomly selecting tokens according to their probabilities",
+    "Answer C": "Discarding tokens below a fixed frequency",
+    "Answer D": "Greedy decoding over tokens"
+  },
+  {
+    "Question": "What is a sentiment analysis pipeline (e.g., in Hugging Face)?",
+    "Correct Answer": "D",
+    "Answer A": "A tokenizer that splits text by sentiment words",
+    "Answer B": "A GPU kernel that speeds up softmax",
+    "Answer C": "A data structure that stores gradients",
+    "Answer D": "A sequence of steps that scores text sentiment, often used to rate model outputs"
+  },
+  {
+    "Question": "What does a sentiment score represent?",
+    "Correct Answer": "A",
+    "Answer A": "A numeric measure of how positive or negative a response is",
+    "Answer B": "The training loss of the sentiment model",
+    "Answer C": "Vocabulary coverage on a dataset",
+    "Answer D": "A KL penalty coefficient"
+  },
+  {
+    "Question": "Which function maps real-valued inputs to (0, 1) with an S-shaped curve, often used for probabilities in logistic regression?",
+    "Correct Answer": "C",
+    "Answer A": "ReLU",
+    "Answer B": "Tanh",
+    "Answer C": "Sigmoid",
+    "Answer D": "Softmax"
+  },
+  {
+    "Question": "Which function converts a vector of logits into a probability distribution over classes?",
+    "Correct Answer": "D",
+    "Answer A": "Sigmoid",
+    "Answer B": "LayerNorm",
+    "Answer C": "ReLU",
+    "Answer D": "Softmax"
+  },
+  {
+    "Question": "In PPO training logs, what does stats_all hold?",
+    "Correct Answer": "B",
+    "Answer A": "Tokenizer vocabulary",
+    "Answer B": "Training statistics for each batch",
+    "Answer C": "Model checkpoints",
+    "Answer D": "Gradient clipping thresholds"
+  },
+  {
+    "Question": "What is stochastic gradient ascent (SGA) used for?",
+    "Correct Answer": "A",
+    "Answer A": "Iteratively updating parameters to maximize an objective (e.g., expected reward)",
+    "Answer B": "Minimizing cross-entropy loss",
+    "Answer C": "Sampling tokens without probabilities",
+    "Answer D": "Reducing batch variance by averaging logits"
+  },
+  {
+    "Question": "In softmax-based decoding, what does the temperature (τ) control?",
+    "Correct Answer": "C",
+    "Answer A": "Model context length",
+    "Answer B": "Optimizer learning rate",
+    "Answer C": "Randomness/sharpness of the probability distribution",
+    "Answer D": "Dataset size per epoch"
+  }
+]
