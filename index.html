@@ -543,6 +543,11 @@
         feedback.style.display = 'block';
         document.getElementById('submitBtn').style.display = 'none';
         document.getElementById('nextBtn').style.display = 'inline-block';
+
+        // Add 2-second delay before moving to next question automatically
+        setTimeout(() => {
+          nextQuestion();
+        }, 2000);
       } else {
         feedback.className = 'feedback error';
         feedback.textContent = 'Incorrect, try again.';
