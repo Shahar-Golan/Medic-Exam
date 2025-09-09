@@ -309,9 +309,14 @@
         <div class="feedback"></div>
 
         <!-- Buttons for navigation & editing -->
-        <button onclick="checkAnswer()" id="submitBtn">Check Answer</button>
-        <button onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question</button>
-        <button onclick="previousQuestion()" id="previousBtn" style="display: none;">Previous Question</button>
+  <button onclick="checkAnswer()" id="submitBtn">Check Answer</button>
+  <button onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question</button>
+  <button onclick="previousQuestion()" id="previousBtn" style="display: none;">Previous Question</button>
+  <button onclick="goHomeScreen()" id="homeBtn" style="margin-left: 10px;">Home Screen</button>
+    // Home Screen button logic
+    function goHomeScreen() {
+      window.location.reload();
+    }
 
       </div>
     </div>
